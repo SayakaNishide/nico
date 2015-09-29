@@ -1,0 +1,20 @@
+<!-- about.blade.php -->
+ 
+ <!--
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>About</title>
+</head>
+<body>
+    <h1>About Me : <?php echo e($first_name); ?> <?php echo e($last_name); ?></h1>
+</body>
+</html>
+-->
+
+
+ 
+<?php $__env->startSection('content'); ?>
+    <h1>About Me: <?php echo e($first_name); ?> <?php echo e($last_name); ?></h1>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
