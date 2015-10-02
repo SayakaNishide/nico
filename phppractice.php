@@ -37,7 +37,39 @@
         $Data = file("data.txt");
         print $Data[1];
 
+ date_default_timezone_set('Asia/Tokyo');
+        print (date("ただいまY年m月d日 H時i分s秒です。"));
+        //http://www.phppro.jp/phpmanual/php/function.date.html
+        $today = getdate();
+        print($today["year"]);
+
         print $_GET["key"];
+
+         $no = rand(1,3);
+        if($no == 1){
+        print("赤");
+        }elseif($no == 2){
+        print("青");
+        }elseif($no == 3){
+        print("白");}
+
+        $nom[1] = "黄色";
+        $nom[2] = "緑";
+        $nom[3] = "黒";
+        print($nom[$no]);
+
+        if(is_numeric($_GET["age"]) == true){
+        print("あなたは");
+        print(htmlspecialchars($_GET["age"]));
+        print("歳");
+        }else{
+        print("数字を入れてね");
+        }
+
+        $a = $_GET["a"];
+        $b = $_GET["b"];
+        $c = $a + $b;
+        print $c;
 
 ?>
 
