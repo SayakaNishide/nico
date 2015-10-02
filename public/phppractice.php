@@ -61,9 +61,9 @@
         if(is_numeric($_GET["age"]) == true){
         print("あなたは");
         print(htmlspecialchars($_GET["age"]));
-        print("歳");
+        print("歳<br />");
         }else{
-        print("数字を入れてね<br/>");
+        print("数字を入れてね");
         }
 
         $a = $_GET["a"];
