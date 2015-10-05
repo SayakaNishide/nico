@@ -16,18 +16,18 @@
         }
 
         $res = $_GET["age"];
-        while(5 <= $res){
+        while(5 < $res){
         $res = floor($res / $no);
         }
-        if($res < 1){
+        if($res == 1){
             print("今日は末吉");
-        }else if(1 <= $res && $res < 2){
+        }else if($res == 2){
             print("今日は中吉");
-        }else if(2 <= $res && $res < 3){
+        }else if($res == 3){
             print("今日は小吉");
-        }else if(3 <= $res && $res < 4){
+        }else if($res == 4){
             print("今日は吉");
-        }else if(4 <= $res && $res < 5){
+        }else if($res == 5){
             print("今日は凶");
         }else{print("今日は大吉");}
 
