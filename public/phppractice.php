@@ -6,17 +6,30 @@
 </head>
 <body>
 <p><?php
-        //$ = pg_connect("host=localhost dbname=testdb user=SayakaNishide password=lesson");
-        //if (!$link) {
-          //  die('接続失敗です。'.pg_last_error());
-        //}
-        require_once 'phppractice.php';       
-        //$con = DB::connect($dsn);
-        //if(DB::isError($con)){
-            //print("DBに接続できません");
-        //}
-        $dbconn = pg_connect("dbname=testdb");
-    
+        
+        $link = pg_connect("host=localhost dbname=testdb user=SayakaNishide password=password");
+        if (!$link) {
+        die('DB接続失敗'.pg_last_error());
+        }
+        print('接続に成功しました。<br>');
+
+        $result = pg_query('SELECT place_no, place_name FROM place');
+        if (!$result) {
+        die('クエリーが失敗しました。'.pg_last_error());
+        }
+
+        for ($i = 0 ; $i < pg_num_rows($result) ; $i++){
+        $rows = pg_fetch_array($result, NULL, PGSQL_ASSOC);
+        print($rows['place_no']);
+        print($rows['place_name']);
+        }   
+        
+        $close_flag = pg_close($link);
+        if ($close_flag){
+        print('切断に成功しました。<br>');
+        }
+
+
 
         $a = "Hello";
         $b = $a."Nico";
