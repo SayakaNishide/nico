@@ -4,7 +4,7 @@
 <form action="printplaces.php" method="get"> 
 検索条件を入力してください：<br />
 区： 
-<input type="text" name="ward" value="shinjuku"> 
+<input type="text" name="ward" value="新宿"> 
 <br />
 施設名： 
 <input type="text" name="name" value="柏木"> 

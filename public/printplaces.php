@@ -16,15 +16,27 @@
         die('クエリーが失敗しました。'.pg_last_error());
         }
 
+
+
         for ($i = 0 ; $i < pg_num_rows($result) ; $i++){
-        $rows = pg_fetch_array($result, NULL, PGSQL_ASSOC);
-            if($_GET["ward"] == $rows['place_ward'] or $_GET["name"] == $rows['place_name']){            
+            $rows = pg_fetch_array($result, NULL, PGSQL_ASSOC);
+            if($_GET["ward"] == null){
+                if($_GET["name"] == $rows['place_name']){            
+                print($rows['place_no']);
+                print($rows['place_name']);
+                print('<br />');}
+            }else if($_GET["name"] == null){
+                if($_GET["ward"] == $rows['place_ward']){            
+                print($rows['place_no']);
+                print($rows['place_name']);
+                print('<br />');}
+            }else if($_GET["ward"] == $rows['place_ward'] && $_GET["name"] == $rows['place_name']){            
                 print($rows['place_no']);
                 print($rows['place_name']);
                 print('<br />');
             }
-        }   
-        
+        }
+   
         $close_flag = pg_close($link);
         if (!$close_flag){
             print('切断失敗<br>');
