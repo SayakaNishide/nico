@@ -6,11 +6,12 @@
 </head>
 <body>
 <p><?php
+        print("占いの結果を出力するよ!<br />");
         $no = rand(1,5);
         if(is_numeric($_GET["age"]) == true){
-        print("あなたは");
         print(htmlspecialchars($_GET["age"]));
-        print("歳<br />");
+        print("歳のあなたの<br />");
+        print("今日の運勢は、、、<br />");    
         }else{
         print("数字を入れてね<br />");
         }
@@ -20,16 +21,16 @@
         $res = floor($res / $no);
         }
         if($res == 1){
-            print("今日は末吉");
+            print("末吉");
         }else if($res == 2){
-            print("今日は中吉");
+            print("中吉");
         }else if($res == 3){
-            print("今日は小吉");
+            print("小吉");
         }else if($res == 4){
-            print("今日は吉");
+            print("吉");
         }else if($res == 5){
-            print("今日は凶");
-        }else{print("今日は大吉");}
+            print("凶");
+        }else{print("大吉");}
 
 ?>
 
