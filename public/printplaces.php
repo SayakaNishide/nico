@@ -21,19 +21,33 @@
         for ($i = 0 ; $i < pg_num_rows($result) ; $i++){
             $rows = pg_fetch_array($result, NULL, PGSQL_ASSOC);
             if($_GET["ward"] == null){
-                if($_GET["name"] == $rows['place_name']){            
+                //print($_GET["ward"]);
+                //print("を含む施設：<br />");
+                if($_GET["name"] == $rows['place_name']){  
+                print("施設番号：");          
                 print($rows['place_no']);
+                print("<br />施設名：");   
                 print($rows['place_name']);
                 print('<br />');}
             }else if($_GET["name"] == null){
-                if($_GET["ward"] == $rows['place_ward']){            
+                print($_GET["ward"]);
+                print("にある施設：<br />"); 
+                if($_GET["ward"] == $rows['place_ward']){ 
+                print("施設番号：");      
                 print($rows['place_no']);
+                print("<br />施設名：");  
                 print($rows['place_name']);
                 print('<br />');}
-            }else if($_GET["ward"] == $rows['place_ward'] && $_GET["name"] == $rows['place_name']){            
+            }else if($_GET["ward"] == $rows['place_ward'] && $_GET["name"] == $rows['place_name']){ 
+                //print("条件に合う施設<br />");
+                //print("施設番号:");           
                 print($rows['place_no']);
+                print("<br />施設名："); 
                 print($rows['place_name']);
                 print('<br />');
+            }else{
+                print("条件に合う施設はありません");
+                break;
             }
         }
    
