@@ -1,0 +1,41 @@
+<html> 
+<head>
+<meta charset="utf-8">
+<title>予約ページ</title>
+</head>
+<body> 
+<form action="phppractice.php" method="get">
+<p><?php
+       
+        $link = pg_connect("host=localhost dbname=testdb user=SayakaNishide password=password");
+        if (!$link) {
+        die('DB接続失敗'.pg_last_error());
+        }
+        $result = pg_query('SELECT * FROM place');
+        if (!$result) {
+        die('クエリーが失敗しました。'.pg_last_error());
+        }
+        $no = $_GET["yo_no"];
+        $able = $_GET["yo_able"];
+        if($able){
+        	die('既に予約済みです。<br>'.pg_last_error());
+        }else{
+        $sql = sprintf("UPDATE place SET place_able = 1 WHERE place_no = $no");
+        $result_flag = pg_query($sql);
+        if (!$result_flag) {
+        die('INSERTクエリーが失敗しました。'.pg_last_error());
+        }
+        }
+        print('<br>予約が完了しました<br>');
+        header( "Refresh: 1; Location: setplace.html" );
+        $close_flag = pg_close($link);
+        if (!$close_flag){
+            print('切断失敗<br>');
+        }
+        
+?>
+</p> 
+<input type="submit" value="予約"> 
+</form> 
+</body> 
+</html>
