@@ -1,0 +1,18 @@
+<html>
+<meta charset="utf-8">
+<body>
+<form action="/use" method="POST">
+使ったものを入力してください：<br />
+商品名：
+<input type="text" name="uname" value="[% FILTER html %]ペン[% END %]">
+<br />
+使用した個数：
+<input type="text" name="unum" value="1">
+<br />
+<input type="submit" value="使う">
+<br />
+<input type="button" onclick="location.href='/redirect'"value="ゴミ箱へ">
+<input type="button" onclick="location.href='/insert'"value="商品を追加">
+</form>
+</body>
+</html>

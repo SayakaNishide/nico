@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<form action="/delete" method="post">
+＜現在持っている商品の一覧＞
+<br />
+<table border="1" width="300" cellspacing="0" cellpadding="5">
+<tr>
+<td>　</td>
+<td>商品名</td>
+<td>個数</td>
+</tr>
+[% FOREACH a = id %]
+<tr>
+<td><INPUT type="checkbox" name="delitem" value="[% a.no %]"></td>
+<td>[% FILTER html %][% a.name %][% END %]</td>
+<td>[% a.have | have_color %]</td>
+</tr>
+[% END %]
+</table>
+<br />
+この商品を捨てますか？
+<br />
+<input type="submit" value="捨てる">
+</form>
+<input type="button" onclick="location.href='/use'"value="商品を使う">
+<input type="button" onclick="location.href='/insert'"value="商品を追加する">
+</body>
+</html>

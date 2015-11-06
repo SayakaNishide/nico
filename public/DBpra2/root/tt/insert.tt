@@ -1,0 +1,20 @@
+<html> 
+<meta charset="utf-8">
+<body> 
+<form action="/insert" method="post">
+登録条件を入力してください：<br />
+商品名：
+<input type="text" name="name" value="ペン">
+<br />
+値段： 
+<input type="text" name="cost" value="3">
+<br />
+個数： 
+<input type="text" name="have" value="4"> 
+<br />
+<input type="submit" value="登録"> 
+</form> 
+<input type="button" onclick="location.href='/use'"value="商品を使う">
+<input type="button" onclick="location.href='/redirect'"value="商品一覧へ">
+</body> 
+</html>

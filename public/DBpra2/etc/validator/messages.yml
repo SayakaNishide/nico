@@ -1,0 +1,30 @@
+insert_items/index:
+    name:
+        NOT_BLANK: 商品名を入力してください
+        JLENGTH: 商品名は全角１０文字以内で入力してください
+    cost:
+        NOT_BLANK: 値段を入力してください
+        REGEX: 値段は半角数字で入力してください
+        GREATER_THAN: 購入数は１以上の整数で入力してください
+    have:
+        NOT_BLANK: 購入数を入力してください
+        REGEX: 購入数は半角数字で入力してください
+        LESS_THAN: 購入数は２０以下の整数で入力してください
+        GREATER_THAN: 購入数は１以上の整数で入力してください
+
+use_items/index:
+    uname:
+        NOT_BLANK: 商品名を入力してください
+        JLENGTH: 商品名は全角１０文字以内で入力してください
+    unum:
+        NOT_BLANK: 使った数を入力してください
+        REGEX: 使った数は半角数字で入力してください
+        LESS_THAN: 一度に５個以上使えません
+        GREATER_THAN: 使った数は１以上の整数で入力してください
+    
+
+del_items/index:
+    dname:
+        NOT_BLANK: 商品名を入力してください
+        JLENGTH: 商品名は全角１０文字以内で入力してください
+

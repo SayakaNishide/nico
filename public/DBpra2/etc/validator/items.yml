@@ -1,0 +1,53 @@
+insert_items/index:
+    name:
+        - NOT_BLANK
+        -
+            - JLENGTH
+            - 1
+            - 10
+    cost:
+        - NOT_BRANK
+        - INT
+            - REGEX
+            - '^[A-z0-9]+$'
+        -
+            - GREATER_THAN
+            - 1
+    have:
+        - NOT_BRANK
+        - INT
+            - REGEX
+            - '^[A-z0-9]+$'
+        -
+            - LESS_THAN
+            - 20
+        -
+            - GREATER_THAN
+            - 1
+
+use_items/index:
+    uname:
+        - NOT_BLANK
+        -
+           - JLENGTH
+           -1
+           - 10
+    unum:   
+        - NOT_BRANK
+        - INT
+            - REGEX
+            - '^[A-z0-9]+$'
+        -   
+            - LESS_THAN
+            - 5
+        -
+            - GREATER_THAN
+            - 1
+
+del_items:
+    dname:
+        - NOT_BLANK
+        -
+            - JLENGTH
+            - 1
+            - 10
